@@ -2,8 +2,10 @@ import { BarChart3 } from "lucide-react";
 
 const HeroBanner = () => {
   return (
-    <section className="bg-header px-6 py-16 md:py-20">
-      <div className="container max-w-5xl mx-auto text-center">
+    <section className="relative overflow-hidden bg-header px-6 py-16 md:py-20">
+      {/* Top-left radial glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 15% 10%, hsl(150 30% 18% / 0.9), transparent 60%)' }} />
+      <div className="container max-w-5xl mx-auto text-center relative z-10">
         <div className="flex items-center justify-center gap-2 mb-6">
           <BarChart3 className="text-accent" size={32} />
           <span className="text-primary-foreground/70 font-semibold text-sm tracking-widest uppercase">
