@@ -1,7 +1,7 @@
 import {
   Globe, Monitor, Download, Settings, FileArchive, Upload,
   Clock, ClipboardList, FolderSearch, Database, Brain, Puzzle,
-  Leaf, ExternalLink, HardDrive, Cloud
+  Leaf, ExternalLink, HardDrive, Cloud, BarChart3
 } from "lucide-react";
 
 const Onboarding = () => {
@@ -10,11 +10,17 @@ const Onboarding = () => {
       {/* Hero */}
       <section className="relative overflow-hidden bg-header px-6 py-16 md:py-20">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 15% 10%, hsl(150 30% 18% / 0.9), transparent 60%)' }} />
-        <div className="container max-w-5xl mx-auto relative z-10">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-primary-foreground leading-tight text-center">
+        <div className="container max-w-5xl mx-auto text-center relative z-10">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <BarChart3 className="text-accent" size={32} />
+            <span className="text-primary-foreground/70 font-semibold text-sm tracking-widest uppercase">
+              Gestão de Produto Folha
+            </span>
+          </div>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-tight">
             Onboarding <span className="text-accent">Gestão Folha</span>
           </h1>
-          <p className="mt-4 text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto text-center">
+          <p className="mt-4 text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto">
             Nossa História — Conheça as ferramentas, acessos e documentação que fazem parte do dia a dia da gestão de produto folha.
           </p>
         </div>
