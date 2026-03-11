@@ -1,6 +1,7 @@
 import HeroBanner from "@/components/HeroBanner";
 import WelcomeCard from "@/components/WelcomeCard";
 import JourneyStepper from "@/components/JourneyStepper";
+import EssentialResources from "@/components/EssentialResources";
 
 const Index = () => {
   return (
@@ -8,6 +9,7 @@ const Index = () => {
       <HeroBanner />
       <WelcomeCard />
       <JourneyStepper />
+      <EssentialResources />
     </div>
   );
 };

@@ -38,7 +38,8 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    --header-bg: 150 40% 14%;
+    --header-bg: 152 45% 10%;
+    --header-glow: 150 30% 18%;
     --success-bg: 145 40% 93%;
     --success-foreground: 150 35% 25%;
 

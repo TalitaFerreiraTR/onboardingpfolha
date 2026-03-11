@@ -1,11 +1,11 @@
-import { Handshake, Settings, GraduationCap, FileSignature, Headset } from "lucide-react";
+import { Users, Settings, GraduationCap, FileCheck, LifeBuoy } from "lucide-react";
 
 const steps = [
-  { icon: Handshake, label: "Integração Inicial" },
+  { icon: Users, label: "Integração Inicial" },
   { icon: Settings, label: "Configuração de Módulos" },
   { icon: GraduationCap, label: "Treinamento Especializado" },
-  { icon: FileSignature, label: "Homologação de Contratos" },
-  { icon: Headset, label: "Lançamento e Suporte" },
+  { icon: FileCheck, label: "Homologação de Contratos" },
+  { icon: LifeBuoy, label: "Lançamento e Suporte" },
 ];
 
 const JourneyStepper = () => {
