@@ -10,7 +10,7 @@ import UnderConstruction from "./pages/UnderConstruction.tsx";
 /**
  * Altere para `false` quando quiser liberar o site completo para todos.
  */
-const UNDER_CONSTRUCTION = true;
+const UNDER_CONSTRUCTION = false;
 
 const queryClient = new QueryClient();
 
