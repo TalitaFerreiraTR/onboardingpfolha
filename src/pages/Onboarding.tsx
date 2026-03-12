@@ -4,8 +4,9 @@ import {
   Clock, ClipboardList, FolderSearch, Database, Brain, Puzzle,
   Leaf, ExternalLink, HardDrive, Cloud, BarChart3,
   Handshake, Server, Package, Code, CheckCircle, BookOpen,
-  Sparkles, CheckSquare
+  Sparkles, CheckSquare, FileText, Library, CalendarDays
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const steps = [
   { icon: Handshake, label: "Boas-vindas" },
