@@ -442,7 +442,7 @@ const StepTech = () => (
     </div>
 
     {/* IAs */}
-    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+    <div className="md:col-span-2 bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
       <div className="flex items-center gap-3 mb-2">
         <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
           <Brain size={22} strokeWidth={1.5} className="text-foreground" />
@@ -450,12 +450,33 @@ const StepTech = () => (
         <h3 className="text-lg font-bold text-foreground">IAs Utilizadas</h3>
       </div>
       <p className="text-sm text-muted-foreground leading-relaxed">
-        Documentação das inteligências artificiais integradas ao produto e como utilizá-las no dia a dia.
+        Inteligências artificiais integradas ao produto para apoiar o dia a dia.
       </p>
-      <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
-        <BookOpen size={16} /> Acessar Guia
-        <ExternalLink size={14} className="ml-auto" />
-      </a>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+        {[
+          { name: "Validação de Estrutura das PSAIs de NEs do Legado", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/d4734fc4-66e0-4ec1-a704-b09e03234634" },
+          { name: "Assistente educacional", url: "https://dataandanalytics.int.thomsonreuters.com/ai-platform/ai-chains/use/c09954de-9563-49f9-a898-c452ff48a562" },
+          { name: "Criar Rubrica através do assistente de IA", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/52d6965b-c37-49cc-8ce2-ce996fd55ece?sidebar=instructions_auto" },
+          { name: "Agrupamento SAIs", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/3caad024-4894-4a6c-9bde-3a7692d450c4?sidebar=instructions_auto" },
+          { name: "Análise das irregularidades", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/995e98f3-98ba-4ea3-8556-442693eddce?sidebar=instructions_auto" },
+          { name: "Meu Prompt", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/f5fd1d2c-e0bb-4a9c-a494-3c3a42cb6969?sidebar=instructions" },
+          { name: "IGOR - Instrutor de Geração e Otimização de Roteiros", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/34b45254-f1ac-4f0d-a7bc-74aaaee96e88?sidebar=instructions" },
+          { name: "Assistente de Análise de SAIs - Folha de Pagamento - EXCEL", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/46745cc7-263a-4f00-af8a-f4027e3cf3b5" },
+          { name: "CHAIN AI TRIA - DOMINIO", url: "https://dataandanalytics.int.thomsonreuters.com/ai-platform/ai-chains/use/3679317a-l205-4c29-a847-08c8c93fb592" },
+          { name: "Rubricas com Fórmulas", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/b653d9c8-da78-4860-9347-e08a8c97c145?sidebar=instructions_auto" },
+          { name: "Tradução - Inglês", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/37ec1afe-fd69-44b6-95ae-bef608ce57d1" },
+          { name: "Valida PSAI - 200k Tokens", url: "https://dataandanalytics.int.thomsonreuters.com/ai-platform/ai-chains/use/d80f55af-7d45-420c-adc1-065743520fd4" },
+          { name: "Definição", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/07a4a529-30ca-4d64-a813-2cfad0848243" },
+          { name: "Ask GPT 5.2", url: "https://dataandanalytics.int.thomsonreuters.com/ai-platform/ai-experiences/use/cd8d90f6-ce37-4e69-9433-92e658a33675" },
+          { name: "Metaprompting - Generate your Prompt", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-experiences/use/53737406-b11d-4b13-afd2-57e1e33c1c49?sidebar=instructions_auto" },
+          { name: "Metaprompting - Fix your Prompt", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-experiences/use/c67e6f34c-5443-454b-b800-8a7cd4ace2a5?sidebar=instructions_auto" },
+        ].map((item, i) => (
+          <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+            <Brain size={14} className="flex-shrink-0" /> <span className="truncate">{item.name}</span>
+            <ExternalLink size={12} className="ml-auto flex-shrink-0" />
+          </a>
+        ))}
+      </div>
       <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
         <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
         <p className="text-success-foreground text-xs font-medium">Use as IAs como apoio — sempre valide os resultados.</p>
