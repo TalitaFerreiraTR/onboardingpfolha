@@ -265,13 +265,9 @@ const StepInstalacoes = () => (
       </div>
       <p className="text-sm text-muted-foreground leading-relaxed">Instalador e arquivo de configuração.</p>
       <div className="flex flex-col gap-2 mt-auto">
-        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+        <a href="https://trten-my.sharepoint.com/personal/sabrina_guessi_thomsonreuters_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsabrina%5Fguessi%5Fthomsonreuters%5Fcom%2FDocuments%2FTREINAMENTO%20FUNCION%C3%81RIOS%20NOVOS%2FTreinamento%2013%20instala%C3%A7%C3%A3o%20SHARP&viewid=7309f27f%2D1d49%2D48ce%2Da23b%2D899f2b94c3fb&CT=1754672328149&OR=OWA%2DNT%2DMail&CID=2c95a703%2D34fd%2Da08c%2D721f%2D4de9ad2b4f0b&sharingv2=true&fromShare=true&at=9&FolderCTID=0x0120002BAEA7F2C7580140AA6707D43E76E455" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
           <HardDrive size={16} /> Instalador
-          <Download size={14} className="ml-auto" />
-        </a>
-        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
-          <FileArchive size={16} /> Arquivo de Configuração
-          <Download size={14} className="ml-auto" />
+          <ExternalLink size={14} className="ml-auto" />
         </a>
       </div>
       <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
