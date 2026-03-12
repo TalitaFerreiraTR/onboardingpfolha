@@ -308,7 +308,86 @@ const StepFinalizacao = () => {
   );
 };
 
-const stepComponents = [StepBoasVindas, StepSistemasCore, StepInstalacoes, StepDesenvolvimento, StepFinalizacao];
+const StepBaseConhecimento = () => (
+  <div className="animate-fade-in">
+    <div className="bg-card rounded-2xl border border-border p-8 mb-6">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Library size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-xl font-bold text-foreground">
+          Base de <span className="text-accent">Conhecimento</span>
+        </h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed mt-3">
+        Consulte os manuais oficiais para garantir a conformidade dos processos.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        {
+          icon: FileText,
+          label: "Manuais SA",
+          desc: "Soluções de Atendimento — documentação completa dos processos e fluxos de atendimento ao cliente.",
+          action: "Abrir PDF",
+          actionIcon: Download,
+          version: "v3.2",
+          date: "Mar 2026",
+        },
+        {
+          icon: BookOpen,
+          label: "Manuais NE",
+          desc: "Notas Explicativas e Normativas — referência rápida para legislação e regras de cálculo.",
+          action: "Acesso Rápido",
+          actionIcon: ExternalLink,
+          version: "v2.8",
+          date: "Fev 2026",
+        },
+        {
+          icon: Globe,
+          label: "SGSUN",
+          desc: "Sistema de suporte e gestão unificada — acesse o portal ou consulte o manual de uso.",
+          action: "Acessar Sistema",
+          actionIcon: ExternalLink,
+          version: "v1.5",
+          date: "Jan 2026",
+        },
+      ].map((item, i) => {
+        const Icon = item.icon;
+        const ActionIcon = item.actionIcon;
+        return (
+          <div key={i} className="group bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:border-accent/30 hover:-translate-y-1">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center transition-colors group-hover:bg-accent/10">
+                  <Icon size={28} strokeWidth={1.5} className="text-foreground transition-colors group-hover:text-accent" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-foreground">{item.label}</h3>
+                  <Badge variant="secondary" className="mt-1 text-[10px] gap-1 px-2 py-0.5">
+                    <CalendarDays size={10} />
+                    {item.version} · {item.date}
+                  </Badge>
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed flex-1">{item.desc}</p>
+            <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
+              <ActionIcon size={16} /> {item.action}
+            </a>
+            <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2">
+              <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={14} />
+              <p className="text-success-foreground text-xs font-medium">Versão Atualizada</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+);
+
+const stepComponents = [StepBoasVindas, StepSistemasCore, StepInstalacoes, StepDesenvolvimento, StepBaseConhecimento, StepFinalizacao];
 
 /* ─── Main Page ─── */
 
