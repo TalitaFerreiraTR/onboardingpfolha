@@ -9,6 +9,7 @@ import {
   ScrollText, GraduationCap, Scale, Phone, Users, Mail
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import Tris from "@/components/Tris";
 import {
   Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
 } from "@/components/ui/table";
@@ -628,6 +629,8 @@ const Onboarding = () => {
           <ActiveContent key={activeStep} />
         </div>
       </section>
+
+      <Tris onNavigate={(step) => setActiveStep(step)} />
     </div>
   );
 };
