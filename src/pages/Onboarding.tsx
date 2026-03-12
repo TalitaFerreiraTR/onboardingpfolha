@@ -355,12 +355,7 @@ const Onboarding = () => {
         
         {/* Logo inside header */}
         <div className="container max-w-5xl mx-auto relative z-10 mb-10">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded bg-primary-foreground/15 flex items-center justify-center">
-              <span className="text-primary-foreground font-extrabold text-sm">TR</span>
-            </div>
-            <span className="font-bold text-primary-foreground/80 text-sm tracking-tight">Thomson Reuters</span>
-          </div>
+          <span className="font-bold text-primary-foreground/80 text-sm tracking-tight">Thomson Reuters</span>
         </div>
 
         <div className="container max-w-5xl mx-auto text-center relative z-10">
