@@ -112,7 +112,7 @@ const StepEcossistema = () => (
     <div>
       <CategoryHeader title="Rotina & Gestão" icon={ClipboardList} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        <EcossistemaCard icon={Clock} label="My Time" desc="Registro e gestão de ponto e jornada de trabalho." />
+        <EcossistemaCard icon={Clock} label="My Time" desc="Registro e gestão de ponto e jornada de trabalho." href="https://login.producaorestrita.esocial.gov.br/login.aspx" />
         <EcossistemaCard icon={Target} label="ADO Board" desc="Quadro de tarefas e acompanhamento de sprints." />
         <EcossistemaCard icon={Award} label="Metas & Pontuações" desc="Acompanhe metas individuais e do time." />
         <EcossistemaCard icon={Share2} label="SharePoint" desc="Repositório central de documentos e arquivos." />
