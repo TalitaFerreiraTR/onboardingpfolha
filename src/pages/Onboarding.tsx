@@ -4,9 +4,14 @@ import {
   Clock, ClipboardList, FolderSearch, Database, Brain, Puzzle,
   Leaf, ExternalLink, HardDrive, Cloud, BarChart3,
   Handshake, Server, Package, Code, CheckCircle, BookOpen,
-  Sparkles, CheckSquare, FileText, Library, CalendarDays
+  Sparkles, CheckSquare, FileText, Library, CalendarDays,
+  Target, Share2, Award, FolderOpen, RefreshCw, AlertTriangle,
+  ScrollText, GraduationCap, Scale, Phone, Users, Mail
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import {
+  Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
+} from "@/components/ui/table";
 
 const steps = [
   { icon: Handshake, label: "Onboarding" },
@@ -72,31 +77,119 @@ const StepBoasVindas = () => (
   </div>
 );
 
-const StepSistemasCore = () => (
-  <div className="animate-fade-in grid grid-cols-1 sm:grid-cols-3 gap-6">
-    {[
-      { icon: Clock, label: "Folha Certa (Ponto)", desc: "Registro e gestão de ponto eletrônico", tip: "Acesse diariamente para registrar seu ponto." },
-      { icon: ClipboardList, label: "Registro de Atividades", desc: "Acompanhe tarefas e entregas diárias", tip: "Mantenha suas atividades sempre atualizadas." },
-      { icon: FolderSearch, label: "SGD", desc: "Sistema de Gestão de Documentos", tip: "Centralize documentos e contratos aqui." },
-    ].map((item, i) => {
-      const Icon = item.icon;
-      return (
-        <a key={i} href="#" className="group bg-card rounded-2xl border border-border p-8 flex flex-col items-center text-center gap-4 transition-all duration-300 hover:shadow-lg hover:border-accent/30 hover:-translate-y-1">
-          <div className="w-20 h-20 rounded-2xl bg-secondary flex items-center justify-center transition-colors group-hover:bg-accent/10">
-            <Icon size={36} strokeWidth={1.5} className="text-foreground transition-colors group-hover:text-accent" />
-          </div>
-          <h3 className="text-base font-bold text-foreground">{item.label}</h3>
-          <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-          <span className="text-xs font-semibold text-accent opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 flex items-center gap-1">
-            <ExternalLink size={14} /> Acessar
-          </span>
-          <div className="w-full bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-auto">
-            <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={14} />
-            <p className="text-success-foreground text-xs font-medium text-left">{item.tip}</p>
-          </div>
-        </a>
-      );
-    })}
+/* ─── Ecossistema de Trabalho (antigo Sistemas Core) ─── */
+
+const CategoryHeader = ({ title, icon: Icon }: { title: string; icon: React.ElementType }) => (
+  <div className="flex items-center gap-3 mb-5">
+    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+      <Icon size={20} strokeWidth={1.5} className="text-accent" />
+    </div>
+    <h3 className="text-lg font-bold text-foreground">{title}</h3>
+  </div>
+);
+
+const EcossistemaCard = ({ icon: Icon, label, desc }: { icon: React.ElementType; label: string; desc: string }) => (
+  <a
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group bg-card rounded-2xl border border-border p-6 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:shadow-lg hover:border-accent/30 hover:-translate-y-1"
+  >
+    <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center transition-colors group-hover:bg-accent/10">
+      <Icon size={30} strokeWidth={1.5} className="text-foreground transition-colors group-hover:text-accent" />
+    </div>
+    <h4 className="text-sm font-bold text-foreground">{label}</h4>
+    <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+    <span className="text-xs font-semibold text-accent opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 flex items-center gap-1">
+      <ExternalLink size={14} /> Acessar
+    </span>
+  </a>
+);
+
+const StepEcossistema = () => (
+  <div className="animate-fade-in space-y-10">
+    {/* Rotina & Gestão */}
+    <div>
+      <CategoryHeader title="Rotina & Gestão" icon={ClipboardList} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <EcossistemaCard icon={Clock} label="My Time" desc="Registro e gestão de ponto e jornada de trabalho." />
+        <EcossistemaCard icon={Target} label="ADO Board" desc="Quadro de tarefas e acompanhamento de sprints." />
+        <EcossistemaCard icon={Award} label="Metas & Pontuações" desc="Acompanhe metas individuais e do time." />
+        <EcossistemaCard icon={Share2} label="SharePoint" desc="Repositório central de documentos e arquivos." />
+        <EcossistemaCard icon={GraduationCap} label="Certificados" desc="Emissão e consulta de certificados internos." />
+      </div>
+    </div>
+
+    {/* Técnico & Operacional */}
+    <div>
+      <CategoryHeader title="Técnico & Operacional" icon={Database} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <EcossistemaCard icon={Upload} label="Exporta/Importa" desc="Ferramentas de exportação e importação de dados." />
+        <EcossistemaCard icon={HardDrive} label="DW" desc="Data Warehouse — acesso a dados analíticos." />
+        <EcossistemaCard icon={RefreshCw} label="DW Prod → QED" desc="Transformar ambiente DW Prod em QED." />
+        <EcossistemaCard icon={AlertTriangle} label="Anomalia" desc="Registro e tratamento de anomalias do sistema." />
+        <EcossistemaCard icon={ScrollText} label="Aplicação de Log" desc="Consulta e aplicação de logs operacionais." />
+      </div>
+    </div>
+
+    {/* Conhecimento & Apoio */}
+    <div>
+      <CategoryHeader title="Conhecimento & Apoio" icon={BookOpen} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <EcossistemaCard icon={GraduationCap} label="Central de Treinamentos" desc="Cursos, trilhas e materiais de capacitação." />
+        <EcossistemaCard icon={FileText} label="Manual eSocial/Leiaute" desc="Documentação oficial do eSocial e leiautes." />
+        <EcossistemaCard icon={Scale} label="ECONET" desc="Consultoria tributária e legislação trabalhista." />
+        <EcossistemaCard icon={Users} label="Principais Contatos" desc="Veja a tabela de contatos abaixo." />
+      </div>
+    </div>
+
+    {/* Tabela de Contatos */}
+    <div className="bg-card rounded-2xl border border-border p-6">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+          <Phone size={20} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Principais Contatos</h3>
+      </div>
+      <p className="text-sm text-muted-foreground mb-4">Saiba quem procurar para cada área ou assunto.</p>
+      <div className="rounded-xl border border-border overflow-hidden">
+        <Table>
+          <TableHeader>
+            <TableRow className="bg-secondary/50">
+              <TableHead className="font-bold text-foreground">Área / Assunto</TableHead>
+              <TableHead className="font-bold text-foreground">Responsável</TableHead>
+              <TableHead className="font-bold text-foreground">Contato</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {[
+              { area: "Escrita", responsavel: "A definir", contato: "—" },
+              { area: "Contabilidade", responsavel: "A definir", contato: "—" },
+              { area: "Portal do Cliente", responsavel: "A definir", contato: "—" },
+              { area: "Portal do Empregado", responsavel: "A definir", contato: "—" },
+              { area: "Inova", responsavel: "A definir", contato: "—" },
+              { area: "Suporte Geral", responsavel: "A definir", contato: "—" },
+            ].map((row, i) => (
+              <TableRow key={i}>
+                <TableCell className="font-medium text-foreground">{row.area}</TableCell>
+                <TableCell className="text-muted-foreground">{row.responsavel}</TableCell>
+                <TableCell>
+                  <a href="#" className="text-accent hover:underline text-sm flex items-center gap-1">
+                    <Mail size={14} /> {row.contato}
+                  </a>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-4">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">
+          Os contatos serão atualizados com as URLs do SharePoint em breve.
+        </p>
+      </div>
+    </div>
   </div>
 );
 
@@ -210,7 +303,6 @@ const StepInstalacoes = () => (
     </div>
   </div>
 );
-
 
 const StepBaseConhecimento = () => (
   <div className="animate-fade-in">
@@ -372,7 +464,7 @@ const StepTech = () => (
   </div>
 );
 
-const stepComponents = [StepBoasVindas, StepSistemasCore, StepInstalacoes, StepBaseConhecimento, StepTech];
+const stepComponents = [StepBoasVindas, StepEcossistema, StepInstalacoes, StepBaseConhecimento, StepTech];
 
 /* ─── Main Page ─── */
 
@@ -386,6 +478,23 @@ const Onboarding = () => {
       <section className="relative overflow-hidden bg-header px-6 pt-6 pb-24 md:pb-28">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 15% 10%, hsl(150 30% 18% / 0.9), transparent 60%)' }} />
         
+        {/* Spiral / Kicker decorative element — bottom-left, 10% opacity */}
+        <svg
+          className="absolute bottom-0 left-0 pointer-events-none"
+          width="320"
+          height="320"
+          viewBox="0 0 320 320"
+          fill="none"
+          style={{ opacity: 0.1 }}
+        >
+          <path
+            d="M160 20C237.32 20 300 82.68 300 160C300 237.32 237.32 300 160 300C82.68 300 40 257.32 40 200C40 142.68 82.68 100 130 100C177.32 100 210 132.68 210 170C210 207.32 187.32 230 160 230C132.68 230 115 212.32 115 190C115 167.68 132.68 155 150 155C167.32 155 178 165.68 178 178C178 190.32 169.32 198 160 198"
+            stroke="hsl(150 40% 70%)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            fill="none"
+          />
+        </svg>
 
         <div className="container max-w-5xl mx-auto text-center relative z-10">
           <div className="flex items-center justify-center gap-2 mb-6">
