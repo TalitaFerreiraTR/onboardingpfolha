@@ -431,7 +431,7 @@ const StepTech = () => (
       <p className="text-sm text-muted-foreground leading-relaxed">
         Referência rápida de queries e scripts SQL utilizados na gestão de folha de pagamento.
       </p>
-      <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
+      <a href="https://trten-my.sharepoint.com/personal/sabrina_guessi_thomsonreuters_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsabrina%5Fguessi%5Fthomsonreuters%5Fcom%2FDocuments%2FTREINAMENTO%20FUNCION%C3%81RIOS%20NOVOS%2FCOMANDOSs&viewid=7309f27f%2D1d49%2D48ce%2Da23b%2D899f2b94c3fb&CT=1754672324831&OR=OWA%2DNT%2DMail&CID=359e6537%2De6da%2D6605%2D9c64%2D77496e398372&sharingv2=true&fromShare=true&at=9&FolderCTID=0x0120002BAEA7F2C7580140AA6707D43E76E455&view=0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
         <BookOpen size={16} /> Acessar Documentação
         <ExternalLink size={14} className="ml-auto" />
       </a>
