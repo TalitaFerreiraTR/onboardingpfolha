@@ -386,7 +386,88 @@ const StepBaseConhecimento = () => (
   </div>
 );
 
-const stepComponents = [StepBoasVindas, StepSistemasCore, StepInstalacoes, StepDesenvolvimento, StepBaseConhecimento, StepFinalizacao];
+const StepTech = () => (
+  <div className="animate-fade-in grid grid-cols-1 md:grid-cols-2 gap-6">
+    {/* Desenvolvimento */}
+    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Database size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Comandos SQL</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Referência rápida de queries e scripts SQL utilizados na gestão de folha de pagamento.
+      </p>
+      <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
+        <BookOpen size={16} /> Acessar Documentação
+        <ExternalLink size={14} className="ml-auto" />
+      </a>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Sempre teste queries em ambiente de homologação primeiro.</p>
+      </div>
+    </div>
+
+    {/* IAs */}
+    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Brain size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">IAs Utilizadas</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Documentação das inteligências artificiais integradas ao produto e como utilizá-las no dia a dia.
+      </p>
+      <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
+        <BookOpen size={16} /> Acessar Guia
+        <ExternalLink size={14} className="ml-auto" />
+      </a>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Use as IAs como apoio — sempre valide os resultados.</p>
+      </div>
+    </div>
+
+    {/* Extensões */}
+    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Puzzle size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Extensões de Navegador</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Extensões recomendadas que auxiliam no trabalho diário com a gestão de folha.
+      </p>
+      <div className="flex flex-col gap-2 mt-auto">
+        {["JSON Formatter", "React DevTools", "ColorZilla"].map((ext, i) => (
+          <a key={i} href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+            <Puzzle size={16} /> {ext}
+            <ExternalLink size={14} className="ml-auto" />
+          </a>
+        ))}
+      </div>
+    </div>
+
+    {/* Checklist */}
+    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <CheckSquare size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Checklist de Conclusão</h3>
+      </div>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Complete todas as etapas para finalizar o onboarding.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const stepComponents = [StepBoasVindas, StepSistemasCore, StepInstalacoes, StepBaseConhecimento, StepTech];
 
 /* ─── Main Page ─── */
 
