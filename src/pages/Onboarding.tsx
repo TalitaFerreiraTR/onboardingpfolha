@@ -178,8 +178,8 @@ const StepInstalacoes = () => (
   </div>
 );
 
-/* StepDesenvolvimento and StepFinalizacao merged into StepTech below */
 
+const StepBaseConhecimento = () => (
   <div className="animate-fade-in">
     <div className="bg-card rounded-2xl border border-border p-8 mb-6">
       <div className="flex items-center gap-3 mb-2">
