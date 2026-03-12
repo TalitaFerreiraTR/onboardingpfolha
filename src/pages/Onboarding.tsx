@@ -349,6 +349,19 @@ const Onboarding = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Thomson Reuters Navbar */}
+      <nav className="bg-card border-b border-border px-6 py-3 relative z-30">
+        <div className="container max-w-5xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded bg-accent flex items-center justify-center">
+              <span className="text-accent-foreground font-extrabold text-sm">TR</span>
+            </div>
+            <span className="font-bold text-foreground text-sm tracking-tight">Thomson Reuters</span>
+          </div>
+          <span className="text-xs text-muted-foreground hidden sm:block">Portal de Onboarding</span>
+        </div>
+      </nav>
+
       {/* Hero + Stepper */}
       <section className="relative overflow-hidden bg-header px-6 pt-14 pb-24 md:pt-16 md:pb-28">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 15% 10%, hsl(150 30% 18% / 0.9), transparent 60%)' }} />
@@ -362,9 +375,15 @@ const Onboarding = () => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-tight">
             Onboarding <span className="text-accent">Gestão Folha</span>
           </h1>
-          <p className="mt-4 text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto">
-            Siga as etapas abaixo para completar sua integração ao time
+          <p className="mt-4 text-primary-foreground/60 text-lg md:text-xl max-w-2xl mx-auto font-light">
+            Confiança para agir. <span className="text-[hsl(150_60%_55%)] font-semibold">Segurança para crescer.</span>
           </p>
+          <a
+            href="#"
+            className="inline-block mt-6 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-sm px-8 py-3 rounded-lg transition-colors"
+          >
+            Saiba mais
+          </a>
         </div>
       </section>
 
