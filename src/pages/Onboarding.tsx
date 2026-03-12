@@ -560,7 +560,7 @@ const Onboarding = () => {
             Onboarding <span className="text-accent">Gestão Folha</span>
           </h1>
           <p className="mt-4 text-primary-foreground/60 text-lg md:text-xl max-w-2xl mx-auto font-light">
-            Confiança para agir. <span className="text-[hsl(100_20%_72%)] font-semibold">Segurança para crescer.</span>
+            Construindo hoje o <span className="text-[hsl(100_20%_72%)] font-semibold">produto do amanhã.</span>
           </p>
           <a
             href="#"
