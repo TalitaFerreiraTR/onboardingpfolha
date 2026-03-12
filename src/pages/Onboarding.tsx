@@ -9,12 +9,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 
 const steps = [
-  { icon: Handshake, label: "Boas-vindas" },
-  { icon: Server, label: "Sistemas Core" },
-  { icon: Package, label: "Instalações" },
-  { icon: Code, label: "Desenvolvimento" },
-  { icon: Library, label: "Conhecimento" },
-  { icon: CheckCircle, label: "Finalização" },
+  { icon: Handshake, label: "Onboarding" },
+  { icon: Server, label: "Sistemas" },
+  { icon: Package, label: "Setup" },
+  { icon: Library, label: "Manuais" },
+  { icon: Code, label: "Tech" },
 ];
 
 /* ─── Step Content Components ─── */
@@ -179,134 +178,6 @@ const StepInstalacoes = () => (
   </div>
 );
 
-const StepDesenvolvimento = () => (
-  <div className="animate-fade-in grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
-          <Database size={22} strokeWidth={1.5} className="text-foreground" />
-        </div>
-        <h3 className="text-lg font-bold text-foreground">Comandos SQL</h3>
-      </div>
-      <p className="text-sm text-muted-foreground leading-relaxed">
-        Referência rápida de queries e scripts SQL utilizados na gestão de folha de pagamento.
-      </p>
-      <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
-        <BookOpen size={16} /> Acessar Documentação
-        <ExternalLink size={14} className="ml-auto" />
-      </a>
-      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
-        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
-        <p className="text-success-foreground text-xs font-medium">Sempre teste queries em ambiente de homologação primeiro.</p>
-      </div>
-    </div>
-
-    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
-          <Brain size={22} strokeWidth={1.5} className="text-foreground" />
-        </div>
-        <h3 className="text-lg font-bold text-foreground">IAs Utilizadas</h3>
-      </div>
-      <p className="text-sm text-muted-foreground leading-relaxed">
-        Documentação das inteligências artificiais integradas ao produto e como utilizá-las no dia a dia.
-      </p>
-      <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
-        <BookOpen size={16} /> Acessar Guia
-        <ExternalLink size={14} className="ml-auto" />
-      </a>
-      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
-        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
-        <p className="text-success-foreground text-xs font-medium">Use as IAs como apoio — sempre valide os resultados.</p>
-      </div>
-    </div>
-  </div>
-);
-
-const StepFinalizacao = () => {
-  const [checked, setChecked] = useState<boolean[]>([false, false, false, false, false]);
-  const toggle = (i: number) => setChecked(prev => prev.map((v, idx) => idx === i ? !v : v));
-  const progress = Math.round((checked.filter(Boolean).length / checked.length) * 100);
-
-  return (
-    <div className="animate-fade-in grid grid-cols-1 md:grid-cols-2 gap-6">
-      {/* Extensões */}
-      <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
-            <Puzzle size={22} strokeWidth={1.5} className="text-foreground" />
-          </div>
-          <h3 className="text-lg font-bold text-foreground">Extensões de Navegador</h3>
-        </div>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Extensões recomendadas que auxiliam no trabalho diário com a gestão de folha.
-        </p>
-        <div className="flex flex-col gap-2 mt-auto">
-          {["JSON Formatter", "React DevTools", "ColorZilla"].map((ext, i) => (
-            <a key={i} href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
-              <Puzzle size={16} /> {ext}
-              <ExternalLink size={14} className="ml-auto" />
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Checklist */}
-      <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
-            <CheckSquare size={22} strokeWidth={1.5} className="text-foreground" />
-          </div>
-          <h3 className="text-lg font-bold text-foreground">Checklist de Conclusão</h3>
-        </div>
-
-        {/* Progress bar */}
-        <div className="w-full bg-secondary rounded-full h-2.5">
-          <div
-            className="h-2.5 rounded-full bg-accent transition-all duration-500"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-        <p className="text-xs text-muted-foreground">{progress}% concluído</p>
-
-        <div className="flex flex-col gap-2">
-          {[
-            "Li a história e cultura do time",
-            "Configurei os acessos aos sistemas core",
-            "Instalei as ferramentas necessárias",
-            "Revisei a documentação técnica",
-            "Instalei as extensões recomendadas",
-          ].map((item, i) => (
-            <button
-              key={i}
-              onClick={() => toggle(i)}
-              className={`flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-left transition-all duration-200 ${
-                checked[i]
-                  ? "bg-success text-success-foreground"
-                  : "bg-secondary text-foreground hover:bg-accent/10"
-              }`}
-            >
-              <CheckCircle
-                size={18}
-                className={`flex-shrink-0 transition-colors ${checked[i] ? "text-success-foreground" : "text-muted-foreground"}`}
-              />
-              <span className={checked[i] ? "line-through opacity-70" : ""}>{item}</span>
-            </button>
-          ))}
-        </div>
-
-        {progress === 100 && (
-          <div className="bg-success rounded-xl px-5 py-4 flex items-start gap-3 mt-2 animate-fade-in">
-            <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={20} />
-            <p className="text-success-foreground text-sm font-bold">
-              🎉 Parabéns! Seu onboarding está completo!
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
 
 const StepBaseConhecimento = () => (
   <div className="animate-fade-in">
@@ -387,7 +258,88 @@ const StepBaseConhecimento = () => (
   </div>
 );
 
-const stepComponents = [StepBoasVindas, StepSistemasCore, StepInstalacoes, StepDesenvolvimento, StepBaseConhecimento, StepFinalizacao];
+const StepTech = () => (
+  <div className="animate-fade-in grid grid-cols-1 md:grid-cols-2 gap-6">
+    {/* Desenvolvimento */}
+    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Database size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Comandos SQL</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Referência rápida de queries e scripts SQL utilizados na gestão de folha de pagamento.
+      </p>
+      <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
+        <BookOpen size={16} /> Acessar Documentação
+        <ExternalLink size={14} className="ml-auto" />
+      </a>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Sempre teste queries em ambiente de homologação primeiro.</p>
+      </div>
+    </div>
+
+    {/* IAs */}
+    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Brain size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">IAs Utilizadas</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Documentação das inteligências artificiais integradas ao produto e como utilizá-las no dia a dia.
+      </p>
+      <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
+        <BookOpen size={16} /> Acessar Guia
+        <ExternalLink size={14} className="ml-auto" />
+      </a>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Use as IAs como apoio — sempre valide os resultados.</p>
+      </div>
+    </div>
+
+    {/* Extensões */}
+    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Puzzle size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Extensões de Navegador</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Extensões recomendadas que auxiliam no trabalho diário com a gestão de folha.
+      </p>
+      <div className="flex flex-col gap-2 mt-auto">
+        {["JSON Formatter", "React DevTools", "ColorZilla"].map((ext, i) => (
+          <a key={i} href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+            <Puzzle size={16} /> {ext}
+            <ExternalLink size={14} className="ml-auto" />
+          </a>
+        ))}
+      </div>
+    </div>
+
+    {/* Checklist */}
+    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <CheckSquare size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Checklist de Conclusão</h3>
+      </div>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Complete todas as etapas para finalizar o onboarding.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const stepComponents = [StepBoasVindas, StepSistemasCore, StepInstalacoes, StepBaseConhecimento, StepTech];
 
 /* ─── Main Page ─── */
 
@@ -397,6 +349,19 @@ const Onboarding = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Thomson Reuters Navbar */}
+      <nav className="bg-card border-b border-border px-6 py-3 relative z-30">
+        <div className="container max-w-5xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded bg-accent flex items-center justify-center">
+              <span className="text-accent-foreground font-extrabold text-sm">TR</span>
+            </div>
+            <span className="font-bold text-foreground text-sm tracking-tight">Thomson Reuters</span>
+          </div>
+          <span className="text-xs text-muted-foreground hidden sm:block">Portal de Onboarding</span>
+        </div>
+      </nav>
+
       {/* Hero + Stepper */}
       <section className="relative overflow-hidden bg-header px-6 pt-14 pb-24 md:pt-16 md:pb-28">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 15% 10%, hsl(150 30% 18% / 0.9), transparent 60%)' }} />
@@ -410,9 +375,15 @@ const Onboarding = () => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-tight">
             Onboarding <span className="text-accent">Gestão Folha</span>
           </h1>
-          <p className="mt-4 text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto">
-            Siga as etapas abaixo para completar sua integração ao time
+          <p className="mt-4 text-primary-foreground/60 text-lg md:text-xl max-w-2xl mx-auto font-light">
+            Confiança para agir. <span className="text-[hsl(150_60%_55%)] font-semibold">Segurança para crescer.</span>
           </p>
+          <a
+            href="#"
+            className="inline-block mt-6 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-sm px-8 py-3 rounded-lg transition-colors"
+          >
+            Saiba mais
+          </a>
         </div>
       </section>
 
