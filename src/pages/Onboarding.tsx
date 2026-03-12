@@ -1,14 +1,323 @@
+import { useState } from "react";
 import {
   Globe, Monitor, Download, Settings, FileArchive, Upload,
   Clock, ClipboardList, FolderSearch, Database, Brain, Puzzle,
-  Leaf, ExternalLink, HardDrive, Cloud, BarChart3
+  Leaf, ExternalLink, HardDrive, Cloud, BarChart3,
+  Handshake, Server, Package, Code, CheckCircle, BookOpen,
+  Sparkles, CheckSquare
 } from "lucide-react";
 
+const steps = [
+  { icon: Handshake, label: "Boas-vindas" },
+  { icon: Server, label: "Sistemas Core" },
+  { icon: Package, label: "Instalações" },
+  { icon: Code, label: "Desenvolvimento" },
+  { icon: CheckCircle, label: "Finalização" },
+];
+
+/* ─── Step Content Components ─── */
+
+const StepBoasVindas = () => (
+  <div className="animate-fade-in">
+    <div className="bg-card rounded-2xl border border-border p-8 md:p-10 mb-6">
+      <div className="flex flex-col md:flex-row gap-6 items-start">
+        <div className="flex-1">
+          <h3 className="text-2xl font-bold text-foreground mb-3">
+            Nossa <span className="text-accent">História</span>
+          </h3>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            A equipe de Gestão de Produto Folha nasceu com a missão de transformar a experiência
+            de gestão de folha de pagamento. Desde o início, nosso foco é criar processos
+            eficientes, intuitivos e que realmente fazem a diferença no dia a dia.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Aqui você encontra tudo o que precisa para começar sua jornada conosco:
+            ferramentas, acessos, documentação e muito mais.
+          </p>
+        </div>
+        <div className="hidden md:flex items-center justify-center w-24 h-24 rounded-2xl bg-secondary flex-shrink-0">
+          <Sparkles className="text-accent" size={40} strokeWidth={1.5} />
+        </div>
+      </div>
+      <div className="mt-6 bg-success rounded-xl px-5 py-4 flex items-start gap-3">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={20} />
+        <p className="text-success-foreground text-sm font-medium">
+          Siga cada etapa do stepper acima para completar seu onboarding!
+        </p>
+      </div>
+    </div>
+
+    <div className="bg-card rounded-2xl border border-border p-8">
+      <h3 className="text-xl font-bold text-foreground mb-4">
+        Guia de <span className="text-accent">Onboarding</span>
+      </h3>
+      <ol className="space-y-3 text-sm text-muted-foreground">
+        {[
+          "Conheça a história e a cultura do time",
+          "Configure seus acessos aos sistemas core",
+          "Instale as ferramentas necessárias no seu ambiente",
+          "Familiarize-se com a documentação técnica",
+          "Instale as extensões e conclua o checklist",
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="w-6 h-6 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+              {i + 1}
+            </span>
+            <span className="leading-relaxed">{item}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+);
+
+const StepSistemasCore = () => (
+  <div className="animate-fade-in grid grid-cols-1 sm:grid-cols-3 gap-6">
+    {[
+      { icon: Clock, label: "Folha Certa (Ponto)", desc: "Registro e gestão de ponto eletrônico", tip: "Acesse diariamente para registrar seu ponto." },
+      { icon: ClipboardList, label: "Registro de Atividades", desc: "Acompanhe tarefas e entregas diárias", tip: "Mantenha suas atividades sempre atualizadas." },
+      { icon: FolderSearch, label: "SGD", desc: "Sistema de Gestão de Documentos", tip: "Centralize documentos e contratos aqui." },
+    ].map((item, i) => {
+      const Icon = item.icon;
+      return (
+        <a key={i} href="#" className="group bg-card rounded-2xl border border-border p-8 flex flex-col items-center text-center gap-4 transition-all duration-300 hover:shadow-lg hover:border-accent/30 hover:-translate-y-1">
+          <div className="w-20 h-20 rounded-2xl bg-secondary flex items-center justify-center transition-colors group-hover:bg-accent/10">
+            <Icon size={36} strokeWidth={1.5} className="text-foreground transition-colors group-hover:text-accent" />
+          </div>
+          <h3 className="text-base font-bold text-foreground">{item.label}</h3>
+          <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+          <span className="text-xs font-semibold text-accent opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 flex items-center gap-1">
+            <ExternalLink size={14} /> Acessar
+          </span>
+          <div className="w-full bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-auto">
+            <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={14} />
+            <p className="text-success-foreground text-xs font-medium text-left">{item.tip}</p>
+          </div>
+        </a>
+      );
+    })}
+  </div>
+);
+
+const StepInstalacoes = () => (
+  <div className="animate-fade-in grid grid-cols-1 md:grid-cols-3 gap-6">
+    {/* Domínio */}
+    <div className="bg-card rounded-2xl border border-border p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Globe size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Domínio</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">Acesse o sistema via Desktop ou Web.</p>
+      <div className="flex flex-col gap-2 mt-auto">
+        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+          <Monitor size={16} /> Download Desktop
+          <Download size={14} className="ml-auto" />
+        </a>
+        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+          <ExternalLink size={16} /> Acesso Web
+        </a>
+      </div>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Prefira a versão Web para atualizações automáticas.</p>
+      </div>
+    </div>
+
+    {/* Sharp */}
+    <div className="bg-card rounded-2xl border border-border p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Settings size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Sharp</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">Instalador e arquivo de configuração.</p>
+      <div className="flex flex-col gap-2 mt-auto">
+        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+          <HardDrive size={16} /> Instalador
+          <Download size={14} className="ml-auto" />
+        </a>
+        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+          <FileArchive size={16} /> Arquivo de Configuração
+          <Download size={14} className="ml-auto" />
+        </a>
+      </div>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Execute o instalador como administrador.</p>
+      </div>
+    </div>
+
+    {/* Apps */}
+    <div className="bg-card rounded-2xl border border-border p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Package size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Instalação de Apps</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">Ferramentas auxiliares para o dia a dia.</p>
+      <div className="flex flex-col gap-2 mt-auto">
+        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+          <Upload size={16} /> FileZilla FTP
+          <Download size={14} className="ml-auto" />
+        </a>
+        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+          <Monitor size={16} /> DuckCapture
+          <Download size={14} className="ml-auto" />
+        </a>
+        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+          <Cloud size={16} /> Backup Nuvem
+          <Download size={14} className="ml-auto" />
+        </a>
+      </div>
+    </div>
+  </div>
+);
+
+const StepDesenvolvimento = () => (
+  <div className="animate-fade-in grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Database size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Comandos SQL</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Referência rápida de queries e scripts SQL utilizados na gestão de folha de pagamento.
+      </p>
+      <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
+        <BookOpen size={16} /> Acessar Documentação
+        <ExternalLink size={14} className="ml-auto" />
+      </a>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Sempre teste queries em ambiente de homologação primeiro.</p>
+      </div>
+    </div>
+
+    <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Brain size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">IAs Utilizadas</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Documentação das inteligências artificiais integradas ao produto e como utilizá-las no dia a dia.
+      </p>
+      <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent mt-auto">
+        <BookOpen size={16} /> Acessar Guia
+        <ExternalLink size={14} className="ml-auto" />
+      </a>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Use as IAs como apoio — sempre valide os resultados.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const StepFinalizacao = () => {
+  const [checked, setChecked] = useState<boolean[]>([false, false, false, false, false]);
+  const toggle = (i: number) => setChecked(prev => prev.map((v, idx) => idx === i ? !v : v));
+  const progress = Math.round((checked.filter(Boolean).length / checked.length) * 100);
+
+  return (
+    <div className="animate-fade-in grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Extensões */}
+      <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+            <Puzzle size={22} strokeWidth={1.5} className="text-foreground" />
+          </div>
+          <h3 className="text-lg font-bold text-foreground">Extensões de Navegador</h3>
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Extensões recomendadas que auxiliam no trabalho diário com a gestão de folha.
+        </p>
+        <div className="flex flex-col gap-2 mt-auto">
+          {["JSON Formatter", "React DevTools", "ColorZilla"].map((ext, i) => (
+            <a key={i} href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+              <Puzzle size={16} /> {ext}
+              <ExternalLink size={14} className="ml-auto" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Checklist */}
+      <div className="bg-card rounded-2xl border border-border p-8 flex flex-col gap-4">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+            <CheckSquare size={22} strokeWidth={1.5} className="text-foreground" />
+          </div>
+          <h3 className="text-lg font-bold text-foreground">Checklist de Conclusão</h3>
+        </div>
+
+        {/* Progress bar */}
+        <div className="w-full bg-secondary rounded-full h-2.5">
+          <div
+            className="h-2.5 rounded-full bg-accent transition-all duration-500"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <p className="text-xs text-muted-foreground">{progress}% concluído</p>
+
+        <div className="flex flex-col gap-2">
+          {[
+            "Li a história e cultura do time",
+            "Configurei os acessos aos sistemas core",
+            "Instalei as ferramentas necessárias",
+            "Revisei a documentação técnica",
+            "Instalei as extensões recomendadas",
+          ].map((item, i) => (
+            <button
+              key={i}
+              onClick={() => toggle(i)}
+              className={`flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-left transition-all duration-200 ${
+                checked[i]
+                  ? "bg-success text-success-foreground"
+                  : "bg-secondary text-foreground hover:bg-accent/10"
+              }`}
+            >
+              <CheckCircle
+                size={18}
+                className={`flex-shrink-0 transition-colors ${checked[i] ? "text-success-foreground" : "text-muted-foreground"}`}
+              />
+              <span className={checked[i] ? "line-through opacity-70" : ""}>{item}</span>
+            </button>
+          ))}
+        </div>
+
+        {progress === 100 && (
+          <div className="bg-success rounded-xl px-5 py-4 flex items-start gap-3 mt-2 animate-fade-in">
+            <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={20} />
+            <p className="text-success-foreground text-sm font-bold">
+              🎉 Parabéns! Seu onboarding está completo!
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const stepComponents = [StepBoasVindas, StepSistemasCore, StepInstalacoes, StepDesenvolvimento, StepFinalizacao];
+
+/* ─── Main Page ─── */
+
 const Onboarding = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const ActiveContent = stepComponents[activeStep];
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-header px-6 py-16 md:py-20">
+      {/* Hero + Stepper */}
+      <section className="relative overflow-hidden bg-header px-6 pt-14 pb-24 md:pt-16 md:pb-28">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 15% 10%, hsl(150 30% 18% / 0.9), transparent 60%)' }} />
         <div className="container max-w-5xl mx-auto text-center relative z-10">
           <div className="flex items-center justify-center gap-2 mb-6">
@@ -21,165 +330,63 @@ const Onboarding = () => {
             Onboarding <span className="text-accent">Gestão Folha</span>
           </h1>
           <p className="mt-4 text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto">
-            Nossa História — Conheça as ferramentas, acessos e documentação que fazem parte do dia a dia da gestão de produto folha.
+            Siga as etapas abaixo para completar sua integração ao time
           </p>
         </div>
       </section>
 
-      {/* Setup do Sistema */}
-      <section className="px-6 py-16 md:py-20">
-        <div className="container max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
-            Setup do <span className="text-accent">Sistema</span>
-          </h2>
+      {/* Stepper floating */}
+      <div className="px-6 -mt-12 relative z-20">
+        <div className="container max-w-3xl mx-auto">
+          <div className="bg-card rounded-2xl shadow-lg border border-border p-6">
+            <div className="flex items-center justify-between relative">
+              {/* Connecting line */}
+              <div className="absolute top-6 left-[10%] right-[10%] h-px bg-border" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Domínio */}
-            <div className="bg-card rounded-2xl border border-border p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
-                  <Globe size={22} strokeWidth={1.5} className="text-foreground" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground">Domínio</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">Acesse o sistema via Desktop ou Web.</p>
-              <div className="flex flex-col gap-2 mt-auto">
-                <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
-                  <Monitor size={16} /> Download Desktop
-                  <Download size={14} className="ml-auto" />
-                </a>
-                <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
-                  <ExternalLink size={16} /> Acesso Web
-                </a>
-              </div>
-              <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
-                <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
-                <p className="text-success-foreground text-xs font-medium">Prefira a versão Web para atualizações automáticas.</p>
-              </div>
-            </div>
-
-            {/* Sharp */}
-            <div className="bg-card rounded-2xl border border-border p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
-                  <Settings size={22} strokeWidth={1.5} className="text-foreground" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground">Sharp</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">Instalador e arquivo de configuração do Sharp.</p>
-              <div className="flex flex-col gap-2 mt-auto">
-                <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
-                  <HardDrive size={16} /> Instalador
-                  <Download size={14} className="ml-auto" />
-                </a>
-                <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
-                  <FileArchive size={16} /> Arquivo de Configuração
-                  <Download size={14} className="ml-auto" />
-                </a>
-              </div>
-              <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
-                <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
-                <p className="text-success-foreground text-xs font-medium">Execute o instalador como administrador.</p>
-              </div>
-            </div>
-
-            {/* Utilitários */}
-            <div className="bg-card rounded-2xl border border-border p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
-                  <Upload size={22} strokeWidth={1.5} className="text-foreground" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground">Utilitários</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">Ferramentas auxiliares para o dia a dia.</p>
-              <div className="flex flex-col gap-2 mt-auto">
-                <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
-                  <Upload size={16} /> FileZilla FTP
-                  <Download size={14} className="ml-auto" />
-                </a>
-                <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
-                  <Monitor size={16} /> DuckCapture
-                  <Download size={14} className="ml-auto" />
-                </a>
-                <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
-                  <Cloud size={16} /> Backup Nuvem
-                  <Download size={14} className="ml-auto" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Acessos Diários */}
-      <section className="px-6 py-16 md:py-20 bg-secondary/50">
-        <div className="container max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
-            Acessos <span className="text-accent">Diários</span>
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { icon: Clock, label: "Folha Certa (Ponto)", desc: "Registro e gestão de ponto eletrônico" },
-              { icon: ClipboardList, label: "Registro de Atividades", desc: "Acompanhe tarefas e entregas diárias" },
-              { icon: FolderSearch, label: "SGD", desc: "Sistema de Gestão de Documentos" },
-            ].map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <a
-                  key={i}
-                  href="#"
-                  className="group bg-card rounded-2xl border border-border p-8 flex flex-col items-center text-center gap-4 transition-all duration-300 hover:shadow-lg hover:border-accent/30 hover:-translate-y-1"
-                >
-                  <div className="w-20 h-20 rounded-2xl bg-secondary flex items-center justify-center transition-colors group-hover:bg-accent/10">
-                    <Icon size={36} strokeWidth={1.5} className="text-foreground transition-colors group-hover:text-accent" />
-                  </div>
-                  <h3 className="text-base font-bold text-foreground">{item.label}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-                  <span className="text-xs font-semibold text-accent opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 flex items-center gap-1">
-                    <ExternalLink size={14} /> Acessar
-                  </span>
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Documentação Técnica */}
-      <section className="px-6 py-16 md:py-20">
-        <div className="container max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
-            Documentação <span className="text-accent">Técnica</span>
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { icon: Database, label: "Comandos SQL", desc: "Referência rápida de queries e scripts SQL utilizados na folha." },
-              { icon: Brain, label: "Guia de IAs Utilizadas", desc: "Documentação das inteligências artificiais integradas ao produto." },
-              { icon: Puzzle, label: "Extensões de Navegador", desc: "Links para extensões recomendadas que auxiliam no trabalho diário." },
-            ].map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <a
-                  key={i}
-                  href="#"
-                  className="group bg-card rounded-xl border border-border p-5 flex items-start gap-4 transition-all duration-300 hover:shadow-lg hover:border-accent/30 hover:-translate-y-1"
-                >
-                  <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-accent/10">
-                    <Icon size={22} strokeWidth={1.5} className="text-foreground transition-colors group-hover:text-accent" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold text-foreground">{item.label}</h3>
-                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.desc}</p>
-                    <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                      <ExternalLink size={14} /> Acessar
+              {steps.map((step, i) => {
+                const Icon = step.icon;
+                const isActive = i === activeStep;
+                const isDone = i < activeStep;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => setActiveStep(i)}
+                    className="flex flex-col items-center relative z-10 group cursor-pointer"
+                    style={{ width: `${100 / steps.length}%` }}
+                  >
+                    <div
+                      className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300
+                        ${isActive
+                          ? "border-2 border-accent bg-card shadow-md scale-110"
+                          : isDone
+                            ? "border-2 border-accent/50 bg-accent/10"
+                            : "border-2 border-border bg-card group-hover:border-accent/40 group-hover:scale-105"
+                        }`}
+                    >
+                      <Icon
+                        size={20}
+                        strokeWidth={1.5}
+                        className={`transition-colors ${isActive ? "text-accent" : isDone ? "text-accent/70" : "text-muted-foreground group-hover:text-accent"}`}
+                      />
+                    </div>
+                    <span
+                      className={`mt-2 text-xs font-semibold transition-colors leading-tight hidden sm:block
+                        ${isActive ? "text-accent" : isDone ? "text-accent/70" : "text-muted-foreground group-hover:text-accent"}`}
+                    >
+                      {step.label}
                     </span>
-                  </div>
-                </a>
-              );
-            })}
+                  </button>
+                );
+              })}
+            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Step Content */}
+      <section className="px-6 py-12 md:py-16">
+        <div className="container max-w-5xl mx-auto">
+          <ActiveContent key={activeStep} />
         </div>
       </section>
     </div>
