@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 const steps = [
   { icon: Handshake, label: "Onboarding" },
   { icon: Server, label: "Sistemas" },
-  { icon: Package, label: "Setup" },
+  { icon: Package, label: "Instalações" },
   { icon: Library, label: "Manuais" },
   { icon: Code, label: "Tech" },
 ];
