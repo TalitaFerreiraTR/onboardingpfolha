@@ -114,7 +114,7 @@ const StepEcossistema = () => (
       <CategoryHeader title="Rotina & Gestão" icon={ClipboardList} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         <EcossistemaCard icon={Clock} label="My Time" desc="Registro e gestão de ponto e jornada de trabalho." href="https://mytime.thomsonreuters.com/mytime/MyTimeHome.htm" />
-        <EcossistemaCard icon={Target} label="ADO Board" desc="Quadro de tarefas e acompanhamento de sprints." />
+        <EcossistemaCard icon={Target} label="ADO Board" desc="Quadro de tarefas e acompanhamento de sprints." href="https://dev.azure.com/tr-tax/TaxProf/_boards/board/t/br-legacy-payroll-product-ne/Stories?text=12252" />
         <EcossistemaCard icon={Award} label="Metas & Pontuações" desc="Acompanhe metas individuais e do time." />
         <EcossistemaCard icon={Share2} label="SharePoint" desc="Repositório central de documentos e arquivos." />
         <EcossistemaCard icon={GraduationCap} label="Certificados" desc="Emissão e consulta de certificados internos." href="https://trten-my.sharepoint.com/:x:/r/personal/marianna_saggiorato_thomsonreuters_com/_layouts/15/doc2.aspx?sourcedoc=%7B1EECC60C-AEFF-4395-A5E7-454DFC4548BF%7D&file=Empresas%20Certificado%20Contador.xlsx&action=default&mobileredirect=true&cid=2382acd7-c2d1-4187-900e-c6ceef6eeda8" />
