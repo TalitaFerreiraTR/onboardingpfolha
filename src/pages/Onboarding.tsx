@@ -116,7 +116,7 @@ const StepEcossistema = () => (
         <EcossistemaCard icon={Target} label="ADO Board" desc="Quadro de tarefas e acompanhamento de sprints." />
         <EcossistemaCard icon={Award} label="Metas & Pontuações" desc="Acompanhe metas individuais e do time." />
         <EcossistemaCard icon={Share2} label="SharePoint" desc="Repositório central de documentos e arquivos." />
-        <EcossistemaCard icon={GraduationCap} label="Certificados" desc="Emissão e consulta de certificados internos." />
+        <EcossistemaCard icon={GraduationCap} label="Certificados" desc="Emissão e consulta de certificados internos." href="https://trten-my.sharepoint.com/:x:/r/personal/marianna_saggiorato_thomsonreuters_com/_layouts/15/doc2.aspx?sourcedoc=%7B1EECC60C-AEFF-4395-A5E7-454DFC4548BF%7D&file=Empresas%20Certificado%20Contador.xlsx&action=default&mobileredirect=true&cid=2382acd7-c2d1-4187-900e-c6ceef6eeda8" />
       </div>
     </div>
 
