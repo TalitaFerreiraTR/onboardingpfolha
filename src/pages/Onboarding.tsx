@@ -386,6 +386,18 @@ const Onboarding = () => {
       {/* Hero + Stepper */}
       <section className="relative overflow-hidden bg-header px-6 pt-6 pb-24 md:pb-28">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 15% 10%, hsl(150 30% 18% / 0.9), transparent 60%)' }} />
+        <div
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none"
+          style={{
+            backgroundImage: `url(${trKicker})`,
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'bottom left',
+            opacity: 0.12,
+            filter: 'brightness(0) invert(1)',
+            transform: 'translate(-15%, 15%)',
+          }}
+        />
         
         {/* Logo inside header */}
         <div className="container max-w-5xl mx-auto relative z-10 mb-10">
