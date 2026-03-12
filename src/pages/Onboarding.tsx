@@ -13,6 +13,7 @@ const steps = [
   { icon: Server, label: "Sistemas Core" },
   { icon: Package, label: "Instalações" },
   { icon: Code, label: "Desenvolvimento" },
+  { icon: Library, label: "Conhecimento" },
   { icon: CheckCircle, label: "Finalização" },
 ];
 
