@@ -137,7 +137,21 @@ const StepEcossistema = () => (
       <CategoryHeader title="Conhecimento & Apoio" icon={BookOpen} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <EcossistemaCard icon={GraduationCap} label="Central de Treinamentos" desc="Cursos, trilhas e materiais de capacitação." />
-        <EcossistemaCard icon={FileText} label="Manual eSocial/Leiaute" desc="Documentação oficial do eSocial e leiautes." />
+        <div className="group bg-card rounded-2xl border border-border p-6 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:shadow-lg hover:border-accent/30 hover:-translate-y-1">
+          <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center transition-colors group-hover:bg-accent/10">
+            <FileText size={30} strokeWidth={1.5} className="text-foreground transition-colors group-hover:text-accent" />
+          </div>
+          <h4 className="text-sm font-bold text-foreground">Manual eSocial/Leiaute</h4>
+          <p className="text-xs text-muted-foreground leading-relaxed">Documentação oficial do eSocial e leiautes.</p>
+          <div className="flex flex-col gap-2 w-full mt-auto">
+            <a href="https://login.esocial.gov.br/login.aspx" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-lg bg-secondary px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+              <ExternalLink size={12} /> Portal Oficial
+            </a>
+            <a href="https://login.producaorestrita.esocial.gov.br/login.aspx" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-lg bg-secondary px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+              <ExternalLink size={12} /> Ambiente de Teste
+            </a>
+          </div>
+        </div>
         <EcossistemaCard icon={Scale} label="ECONET" desc="Consultoria tributária e legislação trabalhista." href="https://www.econeteditora.com.br/" />
         <EcossistemaCard icon={Users} label="Principais Contatos" desc="Veja a tabela de contatos abaixo." />
       </div>
