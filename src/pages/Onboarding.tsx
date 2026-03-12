@@ -7,6 +7,7 @@ import {
   Sparkles, CheckSquare, FileText, Library, CalendarDays
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import trKicker from "@/assets/tr-kicker.png";
 
 const steps = [
   { icon: Handshake, label: "Onboarding" },
