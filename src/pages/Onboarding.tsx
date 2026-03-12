@@ -349,22 +349,20 @@ const Onboarding = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Thomson Reuters Navbar */}
-      <nav className="bg-card border-b border-border px-6 py-3 relative z-30">
-        <div className="container max-w-5xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded bg-accent flex items-center justify-center">
-              <span className="text-accent-foreground font-extrabold text-sm">TR</span>
-            </div>
-            <span className="font-bold text-foreground text-sm tracking-tight">Thomson Reuters</span>
-          </div>
-          <span className="text-xs text-muted-foreground hidden sm:block">Portal de Onboarding</span>
-        </div>
-      </nav>
-
       {/* Hero + Stepper */}
-      <section className="relative overflow-hidden bg-header px-6 pt-14 pb-24 md:pt-16 md:pb-28">
+      <section className="relative overflow-hidden bg-header px-6 pt-6 pb-24 md:pb-28">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 15% 10%, hsl(150 30% 18% / 0.9), transparent 60%)' }} />
+        
+        {/* Logo inside header */}
+        <div className="container max-w-5xl mx-auto relative z-10 mb-10">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded bg-primary-foreground/15 flex items-center justify-center">
+              <span className="text-primary-foreground font-extrabold text-sm">TR</span>
+            </div>
+            <span className="font-bold text-primary-foreground/80 text-sm tracking-tight">Thomson Reuters</span>
+          </div>
+        </div>
+
         <div className="container max-w-5xl mx-auto text-center relative z-10">
           <div className="flex items-center justify-center gap-2 mb-6">
             <BarChart3 className="text-accent" size={32} />
@@ -376,7 +374,7 @@ const Onboarding = () => {
             Onboarding <span className="text-accent">Gestão Folha</span>
           </h1>
           <p className="mt-4 text-primary-foreground/60 text-lg md:text-xl max-w-2xl mx-auto font-light">
-            Confiança para agir. <span className="text-[hsl(150_60%_55%)] font-semibold">Segurança para crescer.</span>
+            Confiança para agir. <span className="text-[hsl(100_20%_72%)] font-semibold">Segurança para crescer.</span>
           </p>
           <a
             href="#"
@@ -409,7 +407,7 @@ const Onboarding = () => {
                     <div
                       className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300
                         ${isActive
-                          ? "border-2 border-accent bg-card shadow-md scale-110"
+                          ? "border-2 border-accent bg-card scale-110 shadow-[0_0_12px_hsl(25_95%_53%/0.35)]"
                           : isDone
                             ? "border-2 border-accent/50 bg-accent/10"
                             : "border-2 border-border bg-card group-hover:border-accent/40 group-hover:scale-105"
