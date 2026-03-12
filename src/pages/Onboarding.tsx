@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 const steps = [
   { icon: Handshake, label: "Onboarding" },
   { icon: Server, label: "Sistemas" },
-  { icon: Package, label: "Setup" },
+  { icon: Package, label: "Instalações" },
   { icon: Library, label: "Manuais" },
   { icon: Code, label: "Tech" },
 ];
@@ -173,6 +173,39 @@ const StepInstalacoes = () => (
           <Cloud size={16} /> Backup Nuvem
           <Download size={14} className="ml-auto" />
         </a>
+      </div>
+    </div>
+
+    {/* Versões */}
+    <div className="md:col-span-3 bg-card rounded-2xl border border-border p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
+          <Database size={22} strokeWidth={1.5} className="text-foreground" />
+        </div>
+        <h3 className="text-lg font-bold text-foreground">Versões do Sistema</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Baixe a versão atual ou acesse versões anteriores do sistema quando necessário.
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mt-auto">
+        {[
+          { version: "v12.1.3", date: "Mar 2026", current: true },
+          { version: "v12.0.8", date: "Jan 2026", current: false },
+          { version: "v11.5.2", date: "Out 2025", current: false },
+          { version: "v11.0.0", date: "Jul 2025", current: false },
+        ].map((v, i) => (
+          <a key={i} href="#" className={`flex flex-col items-center gap-1 rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${v.current ? "bg-accent/10 text-accent border border-accent/30" : "bg-secondary text-foreground hover:bg-accent/10 hover:text-accent"}`}>
+            <span className="flex items-center gap-1.5">
+              <Download size={14} /> {v.version}
+            </span>
+            <span className="text-[10px] text-muted-foreground font-normal">{v.date}</span>
+            {v.current && <Badge variant="secondary" className="text-[10px] mt-1 bg-accent/20 text-accent border-0">Atual</Badge>}
+          </a>
+        ))}
+      </div>
+      <div className="bg-success rounded-xl px-4 py-3 flex items-start gap-2 mt-2">
+        <Leaf className="text-success-foreground mt-0.5 flex-shrink-0" size={16} />
+        <p className="text-success-foreground text-xs font-medium">Recomendamos sempre usar a versão mais recente.</p>
       </div>
     </div>
   </div>
