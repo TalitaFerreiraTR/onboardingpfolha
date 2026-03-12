@@ -1,5 +1,46 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send, ExternalLink, Bot, User } from "lucide-react";
+import { X, Send, ExternalLink, User } from "lucide-react";
+
+const TrisIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" className={className}>
+    {/* Head */}
+    <rect x="22" y="8" width="56" height="42" rx="16" stroke="currentColor" strokeWidth="4" fill="hsl(25 95% 53% / 0.1)" />
+    {/* Ears */}
+    <circle cx="18" cy="29" r="8" stroke="currentColor" strokeWidth="3.5" fill="hsl(25 95% 53% / 0.15)" />
+    <circle cx="82" cy="29" r="8" stroke="currentColor" strokeWidth="3.5" fill="hsl(25 95% 53% / 0.15)" />
+    {/* Antenna */}
+    <line x1="50" y1="8" x2="50" y2="2" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+    <circle cx="50" cy="1" r="3" fill="hsl(25 95% 53%)" />
+    {/* Eyes */}
+    <circle cx="38" cy="26" r="7" fill="currentColor" />
+    <circle cx="62" cy="26" r="7" fill="currentColor" />
+    <circle cx="36" cy="23" r="2.5" fill="white" />
+    <circle cx="60" cy="23" r="2.5" fill="white" />
+    <circle cx="40" cy="27" r="1.2" fill="white" />
+    <circle cx="64" cy="27" r="1.2" fill="white" />
+    {/* Smile */}
+    <path d="M40 35 Q50 42 60 35" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+    {/* Blush */}
+    <circle cx="32" cy="34" r="3.5" fill="hsl(25 95% 53% / 0.3)" />
+    <circle cx="68" cy="34" r="3.5" fill="hsl(25 95% 53% / 0.3)" />
+    {/* Body */}
+    <path d="M30 52 Q30 56 34 58 L34 78 Q34 84 40 84 L60 84 Q66 84 66 78 L66 58 Q70 56 70 52 Z" stroke="currentColor" strokeWidth="3.5" fill="hsl(25 95% 53% / 0.08)" />
+    {/* Body detail */}
+    <rect x="44" y="62" width="12" height="14" rx="3" stroke="currentColor" strokeWidth="2.5" fill="hsl(25 95% 53% / 0.15)" />
+    {/* Arms */}
+    <path d="M30 58 Q22 62 20 70" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" fill="none" />
+    <path d="M70 58 Q78 62 80 70" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" fill="none" />
+    <circle cx="20" cy="72" r="3" fill="hsl(25 95% 53% / 0.2)" stroke="currentColor" strokeWidth="2" />
+    <circle cx="80" cy="72" r="3" fill="hsl(25 95% 53% / 0.2)" stroke="currentColor" strokeWidth="2" />
+    {/* Feet */}
+    <ellipse cx="42" cy="88" rx="6" ry="4" stroke="currentColor" strokeWidth="2.5" fill="hsl(25 95% 53% / 0.12)" />
+    <ellipse cx="58" cy="88" rx="6" ry="4" stroke="currentColor" strokeWidth="2.5" fill="hsl(25 95% 53% / 0.12)" />
+    {/* Hair bow */}
+    <path d="M68 12 Q74 6 76 12 Q74 14 68 12Z" fill="hsl(25 95% 53%)" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M76 12 Q82 6 84 12 Q82 14 76 12Z" fill="hsl(25 95% 53%)" stroke="currentColor" strokeWidth="1.5" />
+    <circle cx="76" cy="12" r="2" fill="currentColor" />
+  </svg>
+);
 
 interface KnowledgeItem {
   keywords: string[];
@@ -147,7 +188,7 @@ const Tris = ({ onNavigate }: TrisProps) => {
         }`}
         aria-label="Abrir Tris"
       >
-        {open ? <X size={24} /> : <MessageCircle size={24} />}
+        {open ? <X size={24} /> : <TrisIcon size={32} />}
       </button>
 
       {/* Chat Panel */}
@@ -156,7 +197,7 @@ const Tris = ({ onNavigate }: TrisProps) => {
           {/* Header */}
           <div className="bg-header px-5 py-4 flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-accent/20 flex items-center justify-center">
-              <Bot size={20} className="text-accent" />
+              <TrisIcon size={28} className="text-accent" />
             </div>
             <div>
               <h3 className="text-sm font-bold text-primary-foreground">Tris</h3>
@@ -170,7 +211,7 @@ const Tris = ({ onNavigate }: TrisProps) => {
               <div key={i} className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                 {msg.role === "assistant" && (
                   <div className="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Bot size={14} className="text-accent" />
+                    <TrisIcon size={20} className="text-accent" />
                   </div>
                 )}
                 <div className={`max-w-[80%] ${msg.role === "user" ? "order-first" : ""}`}>
