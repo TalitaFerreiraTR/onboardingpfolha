@@ -407,7 +407,7 @@ const Onboarding = () => {
                     <div
                       className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300
                         ${isActive
-                          ? "border-2 border-accent bg-card shadow-md scale-110"
+                          ? "border-2 border-accent bg-card scale-110 shadow-[0_0_12px_hsl(25_95%_53%/0.35)]"
                           : isDone
                             ? "border-2 border-accent/50 bg-accent/10"
                             : "border-2 border-border bg-card group-hover:border-accent/40 group-hover:scale-105"
