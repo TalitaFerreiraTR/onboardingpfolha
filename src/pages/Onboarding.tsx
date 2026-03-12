@@ -386,10 +386,6 @@ const Onboarding = () => {
       <section className="relative overflow-hidden bg-header px-6 pt-6 pb-24 md:pb-28">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 15% 10%, hsl(150 30% 18% / 0.9), transparent 60%)' }} />
         
-        {/* Logo inside header */}
-        <div className="container max-w-5xl mx-auto relative z-10 mb-10">
-          <span className="font-bold text-primary-foreground/80 text-sm tracking-tight">Thomson Reuters</span>
-        </div>
 
         <div className="container max-w-5xl mx-auto text-center relative z-10">
           <div className="flex items-center justify-center gap-2 mb-6">
