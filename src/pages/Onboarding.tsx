@@ -128,7 +128,7 @@ const StepEcossistema = () => (
         <EcossistemaCard icon={HardDrive} label="DW" desc="Data Warehouse — acesso a dados analíticos." />
         <EcossistemaCard icon={RefreshCw} label="DW Prod → QED" desc="Transformar ambiente DW Prod em QED." />
         <EcossistemaCard icon={AlertTriangle} label="Anomalia" desc="Registro e tratamento de anomalias do sistema." />
-        <EcossistemaCard icon={ScrollText} label="Aplicação de Log" desc="Consulta e aplicação de logs operacionais." />
+        <EcossistemaCard icon={ScrollText} label="Aplicação de Log" desc="Consulta e aplicação de logs operacionais." href="https://dominiosistemas.github.io/Ferramenta-para-Suporte/" />
       </div>
     </div>
 
