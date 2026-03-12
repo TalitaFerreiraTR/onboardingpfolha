@@ -9,12 +9,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 
 const steps = [
-  { icon: Handshake, label: "Boas-vindas" },
-  { icon: Server, label: "Sistemas Core" },
-  { icon: Package, label: "Instalações" },
-  { icon: Code, label: "Desenvolvimento" },
-  { icon: Library, label: "Conhecimento" },
-  { icon: CheckCircle, label: "Finalização" },
+  { icon: Handshake, label: "Onboarding" },
+  { icon: Server, label: "Sistemas" },
+  { icon: Package, label: "Setup" },
+  { icon: Library, label: "Manuais" },
+  { icon: Code, label: "Tech" },
 ];
 
 /* ─── Step Content Components ─── */
