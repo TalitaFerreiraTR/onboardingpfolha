@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 
 const steps = [
   { icon: Handshake, label: "Onboarding" },
-  { icon: Server, label: "Sistemas" },
+  { icon: Server, label: "Workspace" },
   { icon: Package, label: "Instalações" },
   { icon: Library, label: "Manuais" },
   { icon: Code, label: "Tech" },
