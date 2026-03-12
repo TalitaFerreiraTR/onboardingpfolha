@@ -136,7 +136,24 @@ const StepEcossistema = () => (
     <div>
       <CategoryHeader title="Conhecimento & Apoio" icon={BookOpen} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <EcossistemaCard icon={GraduationCap} label="Central de Treinamentos" desc="Cursos, trilhas e materiais de capacitação." />
+        <div className="group bg-card rounded-2xl border border-border p-6 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:shadow-lg hover:border-accent/30 hover:-translate-y-1">
+          <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center transition-colors group-hover:bg-accent/10">
+            <GraduationCap size={30} strokeWidth={1.5} className="text-foreground transition-colors group-hover:text-accent" />
+          </div>
+          <h4 className="text-sm font-bold text-foreground">Central de Treinamentos</h4>
+          <p className="text-xs text-muted-foreground leading-relaxed">Cursos, trilhas e materiais de capacitação.</p>
+          <div className="flex flex-col gap-2 w-full mt-auto">
+            <a href="https://suporte.dominioatendimento.com/central/faces/central-solucoes-resultados.html?moduloSolucao=13" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-lg bg-secondary px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+              <ExternalLink size={12} /> Central de Soluções
+            </a>
+            <a href="https://suporte.dominioatendimento.com/central/faces/solucao.html?codigo=5637" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-lg bg-secondary px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+              <ExternalLink size={12} /> Treinamentos Folha
+            </a>
+            <a href="https://trten-my.sharepoint.com/personal/sabrina_guessi_thomsonreuters_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsabrina%5Fguessi%5Fthomsonreuters%5Fcom%2FDocuments%2FTREINAMENTO%20FUNCION%C3%81RIOS%20NOVOS&CT=1754672315002&OR=OWA%2DNT%2DMail&CID=a82e2753%2Dc2c9%2Db7f4%2Def53%2D14e259605bf3&sharingv2=true&fromShare=true&at=9&FolderCTID=0x0120002BAEA7F2C7580140AA6707D43E76E455&view=0" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-lg bg-secondary px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+              <ExternalLink size={12} /> Treinamento SharePoint
+            </a>
+          </div>
+        </div>
         <div className="group bg-card rounded-2xl border border-border p-6 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:shadow-lg hover:border-accent/30 hover:-translate-y-1">
           <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center transition-colors group-hover:bg-accent/10">
             <FileText size={30} strokeWidth={1.5} className="text-foreground transition-colors group-hover:text-accent" />
