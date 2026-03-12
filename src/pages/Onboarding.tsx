@@ -236,11 +236,15 @@ const StepInstalacoes = () => (
       </div>
       <p className="text-sm text-muted-foreground leading-relaxed">Acesse o sistema via Desktop ou Web.</p>
       <div className="flex flex-col gap-2 mt-auto">
-        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+        <a href="https://ftpdownload.dominiosistemas.com.br/atualizacao/contabil/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+          <RefreshCw size={16} /> Atualizações
+          <ExternalLink size={14} className="ml-auto" />
+        </a>
+        <a href="https://download.dominiosistemas.com.br/instalacao/contabil/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
           <Monitor size={16} /> Download Desktop
           <Download size={14} className="ml-auto" />
         </a>
-        <a href="#" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
+        <a href="https://www.dominioweb.com.br/logout" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent">
           <ExternalLink size={16} /> Acesso Web
         </a>
       </div>
