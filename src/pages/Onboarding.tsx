@@ -173,7 +173,7 @@ const StepEcossistema = () => (
           </div>
         </div>
         <EcossistemaCard icon={Scale} label="ECONET" desc="Consultoria tributária e legislação trabalhista." href="https://www.econeteditora.com.br/" />
-        <EcossistemaCard icon={Users} label="Principais Contatos" desc="Veja a tabela de contatos abaixo." />
+        <EcossistemaCard icon={Users} label="Principais Contatos" desc="Veja a tabela de contatos abaixo." href="https://www.google.com" />
       </div>
     </div>
 
