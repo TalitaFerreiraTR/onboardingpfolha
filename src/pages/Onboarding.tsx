@@ -472,7 +472,7 @@ const StepTech = () => (
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
         {[
-          { name: "Validação de Estrutura das PSAIs de NEs do Legado", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/d4734fc4-66e0-4ec1-a704-b09e03234634" },
+          { name: "Validação de Estrutura das PSAIs de NEs do Legado", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/d4734fc4-66e0-4ec1-a704-b09ef3234634?sidebar=instructions_auto" },
           { name: "Assistente educacional", url: "https://dataandanalytics.int.thomsonreuters.com/ai-platform/ai-chains/use/c09954de-9563-49f9-a898-c452ff48a562" },
           { name: "Criar Rubrica através do assistente de IA", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/52d6965b-c37-49cc-8ce2-ce996fd55ece?sidebar=instructions_auto" },
           { name: "Agrupamento SAIs", url: "https://aiplatform.thomsonreuters.com/ai-platform/ai-chains/use/3caad024-4894-4a6c-9bde-3a7692d450c4?sidebar=instructions_auto" },
