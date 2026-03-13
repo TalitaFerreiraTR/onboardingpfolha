@@ -6,10 +6,11 @@ import {
   Handshake, Server, Package, Code, CheckCircle, BookOpen,
   Sparkles, CheckSquare, FileText, Library, CalendarDays,
   Target, Share2, Award, FolderOpen, RefreshCw, AlertTriangle,
-  ScrollText, GraduationCap, Scale, Phone, Users, Mail
+  ScrollText, GraduationCap, Scale, Phone, Users, Mail, Megaphone
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Tris from "@/components/Tris";
+import QuadroAvisos from "@/components/QuadroAvisos";
 import {
   Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
 } from "@/components/ui/table";
@@ -20,6 +21,7 @@ const steps = [
   { icon: Package, label: "Instalações" },
   { icon: Library, label: "Manuais" },
   { icon: Code, label: "Tech" },
+  { icon: Megaphone, label: "Avisos" },
 ];
 
 /* ─── Step Content Components ─── */
@@ -517,7 +519,7 @@ const StepTech = () => (
   </div>
 );
 
-const stepComponents = [StepBoasVindas, StepEcossistema, StepInstalacoes, StepBaseConhecimento, StepTech];
+const stepComponents = [StepBoasVindas, StepEcossistema, StepInstalacoes, StepBaseConhecimento, StepTech, QuadroAvisos];
 
 /* ─── Main Page ─── */
 
